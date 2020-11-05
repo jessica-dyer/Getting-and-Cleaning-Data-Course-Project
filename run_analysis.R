@@ -12,7 +12,7 @@ fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%2
 download.file(fileUrl, destfile="./data/wearable.zip", method="curl")
 
 zipF <- "./data/wearable.zip"
-outDir <- "C:/Users/jessd9/Repositories/data"
+outDir <- "./data"
 gwearable <- unzip(zipF, exdir = outDir)
 
 #You should create one R script called run_analysis.R that does the following:
@@ -22,24 +22,24 @@ gwearable <- unzip(zipF, exdir = outDir)
 #******************************************************************
 
 # 1.1 Reading files
-setwd("C:/Users/jessd9/Repositories/data")
+##setwd("C:/Users/jessd9/Repositories/data")
 
 # 1.2 Read in column names
-features <- read.table("UCI HAR Dataset/features.txt", col.names = c("n","functions"))
-activities <- read.table("UCI HAR Dataset/activity_labels.txt", col.names = c("code", "activity"))
-subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt", col.names = "subject")
-subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt", col.names = "subject")
+features <- read.table("data/UCI HAR Dataset/features.txt", col.names = c("n","functions"))
+activities <- read.table("data/UCI HAR Dataset/activity_labels.txt", col.names = c("code", "activity"))
+subject_test <- read.table("data/UCI HAR Dataset/test/subject_test.txt", col.names = "subject")
+subject_train <- read.table("data/UCI HAR Dataset/train/subject_train.txt", col.names = "subject")
 
 # 1.3  Reading training tables & assigning column names:
-x_train <- read.table("UCI HAR Dataset/train/X_train.txt", col.names = features$functions)
-y_train <- read.table("UCI HAR Dataset/train/y_train.txt", col.names = "code")
+x_train <- read.table("data/UCI HAR Dataset/train/X_train.txt", col.names = features$functions)
+y_train <- read.table("data/UCI HAR Dataset/train/y_train.txt", col.names = "code")
 
 # 1.4 Reading test tables & assigning column names:  
-x_test <- read.table("UCI HAR Dataset/test/X_test.txt", col.names = features$functions)
-y_test <- read.table("UCI HAR Dataset/test/y_test.txt", col.names = "code")
+x_test <- read.table("data/UCI HAR Dataset/test/X_test.txt", col.names = features$functions)
+y_test <- read.table("data/UCI HAR Dataset/test/y_test.txt", col.names = "code")
 
 # 1.5 Direct back to main WD after the data has been read into the project 
-setwd("C:/Users/jessd9/Repositories/Getting-and-Cleaning-Data-Course-Project")
+##setwd("C:/Users/jessd9/Repositories/Getting-and-Cleaning-Data-Course-Project")
 
 # 1.6 Merge all data into one dataset 
 X <- rbind(x_train, x_test)
